@@ -1,23 +1,21 @@
-// Retorne o url da página atual utilizando o objeto window
+const tabMenu = document.querySelectorAll('.js-tabmenu li')
+const tabContent = document.querySelectorAll('.js-tabcontent section')
+
+if(tabMenu.length && tabContent.length){
+tabContent[0].classList.add('ativo')
 
 
-console.log(window.location.href)
+function activeTab(index){
+    tabContent.forEach((content) => {
+        content.classList.remove('ativo')
+    })
+    tabContent[index].classList.add('ativo')
+}
 
+tabMenu.forEach((itemMenu, index) => {
+    itemMenu.addEventListener('click',() => {
+        activeTab(index)
+    })
 
-
-
-
-// Seleciona o primeiro elemento da página que
-// possua a classe ativo
-const titulo = document.querySelector(".titulo22");
-
-console.log(titulo)
-
-// Retorne a linguagem do navegador
-
-console.log(navigator.language)
-
-
-// Retorne a largura da janela 
-
-console.log(titulo.offsetHeight)
+})
+}
